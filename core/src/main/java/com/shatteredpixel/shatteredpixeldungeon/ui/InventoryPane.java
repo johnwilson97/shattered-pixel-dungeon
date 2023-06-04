@@ -406,7 +406,6 @@ public class InventoryPane extends Component {
 
 	public static void useTargeting(){
 		if (instance != null &&
-				instance.visible &&
 				lastTarget != null &&
 				Actor.chars().contains( lastTarget ) &&
 				lastTarget.isAlive() &&
@@ -421,9 +420,10 @@ public class InventoryPane extends Component {
 				crossM.point(sprite.center(crossM));
 			}
 
-			crossB.point(targetingSlot.sprite.center(crossB));
-			crossB.visible = true;
-
+			if (targetingSlot != null) {
+				crossB.point(targetingSlot.sprite.center(crossB));
+				crossB.visible = true;
+			}
 		} else {
 
 			lastTarget = null;
