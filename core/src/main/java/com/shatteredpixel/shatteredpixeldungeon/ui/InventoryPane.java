@@ -406,6 +406,7 @@ public class InventoryPane extends Component {
 
 	public static void useTargeting(){
 		if (instance != null &&
+		    		instance.visible &&
 				lastTarget != null &&
 				Actor.chars().contains( lastTarget ) &&
 				lastTarget.isAlive() &&
